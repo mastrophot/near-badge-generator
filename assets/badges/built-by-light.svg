@@ -1,0 +1,5 @@
+<svg width="220" height="32" viewBox="0 0 220 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="32" rx="16" fill="#FFFFFF" />
+  <rect x="0.5" y="0.5" width="219" height="31" rx="15.5" stroke="#000000" stroke-opacity="0.1" />
+  <text x="16" y="21" fill="#666" style="font-family: 'Inter', sans-serif; font-size: 11px;">BUILT BY <tspan fill="#000000" font-weight="800">{HANDLE}</tspan></text>
+</svg>

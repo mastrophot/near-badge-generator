@@ -1,0 +1,6 @@
+<svg width="220" height="32" viewBox="0 0 220 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="32" rx="16" fill="#111111" />
+  <rect x="0.5" y="0.5" width="219" height="31" rx="15.5" stroke="#00EC97" stroke-opacity="0.3" />
+  <text x="16" y="21" fill="#888" style="font-family: 'Inter', sans-serif; font-size: 11px;">BUILT BY <tspan fill="#00EC97" font-weight="600">{HANDLE}</tspan></text>
+  <path d="M195 10L205 22H185L195 10Z" fill="#00EC97" fill-opacity="0.2" />
+</svg>
