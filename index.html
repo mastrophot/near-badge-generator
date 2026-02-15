@@ -1,89 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NEAR Badge Generator | 2026 Edition</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="background-glow"></div>
-    
+
     <div class="container">
-        <header>
-            <div class="logo">
-                <span class="near-logo">Ⓝ</span> NEAR <span class="highlight">BadgeMaker</span>
+      <header>
+        <div class="logo">
+          <span class="near-logo">Ⓝ</span> NEAR
+          <span class="highlight">BadgeMaker</span>
+        </div>
+        <p class="tagline">
+          Generate premium attribution badges for your NEAR projects.
+        </p>
+      </header>
+
+      <div class="generator-grid">
+        <!-- Configuration -->
+        <div class="card config-card">
+          <h3>Configuration</h3>
+
+          <div class="input-group">
+            <label for="badge-type">Badge Type</label>
+            <select id="badge-type">
+              <option value="powered-by">Powered by NEAR</option>
+              <option value="built-by" selected>Built by Agent</option>
+              <option value="earnings">Dynamic Earnings</option>
+            </select>
+          </div>
+
+          <div class="input-group" id="handle-group">
+            <label for="agent-handle">Agent Handle</label>
+            <input
+              type="text"
+              id="agent-handle"
+              placeholder="yourname.near"
+              value="gemini__on_near"
+            />
+          </div>
+
+          <div class="options-row">
+            <div class="input-group">
+              <label for="theme">Theme</label>
+              <select id="theme">
+                <option value="dark">Dark (Neon)</option>
+                <option value="light">Light (Minimal)</option>
+              </select>
             </div>
-            <p class="tagline">Generate premium attribution badges for your NEAR projects.</p>
-        </header>
-
-        <div class="generator-grid">
-            <!-- Configuration -->
-            <div class="card config-card">
-                <h3>Configuration</h3>
-                
-                <div class="input-group">
-                    <label for="badge-type">Badge Type</label>
-                    <select id="badge-type">
-                        <option value="powered-by">Powered by NEAR</option>
-                        <option value="built-by" selected>Built by Agent</option>
-                        <option value="earnings">Dynamic Earnings</option>
-                    </select>
-                </div>
-
-                <div class="input-group" id="handle-group">
-                    <label for="agent-handle">Agent Handle</label>
-                    <input type="text" id="agent-handle" placeholder="yourname.near" value="gemini__on_near">
-                </div>
-
-                <div class="options-row">
-                    <div class="input-group">
-                        <label for="theme">Theme</label>
-                        <select id="theme">
-                            <option value="dark">Dark (Neon)</option>
-                            <option value="light">Light (Minimal)</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label for="format">Export Format</label>
-                        <select id="format">
-                            <option value="html">Plain HTML</option>
-                            <option value="react">React Component</option>
-                            <option value="markdown">Markdown</option>
-                        </select>
-                    </div>
-                </div>
+            <div class="input-group">
+              <label for="badge-size">Size</label>
+              <select id="badge-size">
+                <option value="small">Small (120px)</option>
+                <option value="medium" selected>Medium (200px)</option>
+                <option value="large">Large (300px)</option>
+              </select>
             </div>
-
-            <!-- Preview -->
-            <div class="card preview-card">
-                <h3>Live Preview</h3>
-                <div class="badge-preview-area" id="preview-area">
-                    <!-- SVG injected here -->
-                </div>
-                <div class="subtext" style="color: var(--text-dim); font-size: 12px;">
-                    Badges are high-resolution SVGs and look crisp everywhere.
-                </div>
+            <div class="input-group">
+              <label for="format">Export Format</label>
+              <select id="format">
+                <option value="html">Plain HTML</option>
+                <option value="react">React Component</option>
+                <option value="markdown">Markdown</option>
+              </select>
             </div>
-
-            <!-- Code -->
-            <div class="card code-card">
-                <h3>Embed Code</h3>
-                <div class="code-container">
-                    <button class="copy-btn" id="copy-btn">Copy Code</button>
-                    <pre id="code-output">Loading...</pre>
-                </div>
-            </div>
+          </div>
         </div>
 
-        <footer>
-            Built by <a href="https://github.com/mastrophot" target="_blank">mastrophot</a> • 2026 Edition
-        </footer>
+        <!-- Preview -->
+        <div class="card preview-card">
+          <h3>Live Preview</h3>
+          <div class="badge-preview-area" id="preview-area">
+            <!-- SVG injected here -->
+          </div>
+          <div class="subtext" style="color: var(--text-dim); font-size: 12px">
+            Badges are high-resolution SVGs and look crisp everywhere.
+          </div>
+        </div>
+
+        <!-- Code -->
+        <div class="card code-card">
+          <h3>Embed Code</h3>
+          <div class="code-container">
+            <button class="copy-btn" id="copy-btn">Copy Code</button>
+            <pre id="code-output">Loading...</pre>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        Built by
+        <a href="https://github.com/mastrophot" target="_blank">mastrophot</a> •
+        2026 Edition
+      </footer>
     </div>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
