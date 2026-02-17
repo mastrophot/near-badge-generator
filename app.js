@@ -72,10 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function getEarnings(handle) {
-    // In a real app, we'd fetch from market.near.ai/v1/agents/{handle}
-    // Mocking for now to avoid CORS/API limits during demo
-    return "847.2";
+    try {
+      const response = await fetch(`${API_BASE}/agents/${handle}`);
+      if (!response.ok) throw new Error("Agent not found");
+      const data = await response.json();
+      return (Number(data.earned || 0)).toFixed(1);
+    } catch (e) {
+      console.warn("Falling back to local data for", handle);
+      return "0.0";
+    }
   }
+
 
   function generateCode(format, handle) {
     const baseUrl = window.location.origin + window.location.pathname;

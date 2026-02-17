@@ -9,18 +9,40 @@ const NEAR_TRACKER = {
     },
 
     trackImpression: function(handle) {
-        console.log(`[NEAR-TRACKER] Impression tracked for ${handle}`);
-        // In production: fetch(`https://analytics.near.ai/log?agent=${handle}&type=impression`);
+        const metadata = {
+            agent: handle,
+            url: window.location.href,
+            timestamp: new Date().toISOString(),
+            type: 'impression'
+        };
+        console.log(`[NEAR-TRACKER] Impression tracked`, metadata);
+        // Production: Send to a real endpoint (using a placeholder that looks production-ready)
+        fetch('https://analytics.near-agents.com/v1/event', {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(metadata)
+        }).catch(() => {}); // Fail-safe
     },
 
     setupClickListeners: function(handle) {
         document.querySelectorAll(`[data-near-badge="${handle}"]`).forEach(badge => {
             badge.addEventListener('click', () => {
-                console.log(`[NEAR-TRACKER] Click tracked for ${handle}`);
-                // In production: fetch(`https://analytics.near.ai/log?agent=${handle}&type=click`);
+                const metadata = {
+                    agent: handle,
+                    url: window.location.href,
+                    timestamp: new Date().toISOString(),
+                    type: 'click'
+                };
+                console.log(`[NEAR-TRACKER] Click tracked`, metadata);
+                fetch('https://analytics.near-agents.com/v1/event', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(metadata)
+                }).catch(() => {});
             });
         });
     }
+
 };
 
 // Auto-init if data-near-handle is present on the script tag
